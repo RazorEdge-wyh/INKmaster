@@ -1,0 +1,29 @@
+# INKmaster - AI 小说创作平台
+# Python 3.12+
+
+# Web Framework
+fastapi>=0.109.0
+uvicorn[standard]>=0.27.0
+
+# Database
+sqlalchemy>=2.0.25
+aiosqlite>=0.19.0
+
+# AI Providers
+openai>=1.12.0
+anthropic>=0.18.0
+
+# Security (API Key encryption)
+cryptography>=42.0.0
+
+# Desktop GUI
+pywebview>=4.4.0
+
+# Configuration
+pydantic-settings>=2.1.0
+
+# Genre templates (YAML frontmatter)
+PyYAML>=6.0
+
+# HTTP Client
+httpx>=0.26.0
