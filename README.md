@@ -2,6 +2,8 @@
 
 INKmaster 是一个基于 AI 的中文网络小说创作工具，采用 FastAPI + React 技术栈，提供完整的小说创作流水线：从世界观到正文，从设定到润色，全流程由 AI 大模型驱动。
 
+> **项目来源**：原始源码丢失，本仓库代码从 PyInstaller 打包产物反编译 `.pyc` 字节码恢复而来，随后按功能补全。恢复过程见 [docs/恢复日志.md](docs/恢复日志.md)。
+
 ## 功能特性
 
 - **九步创作流水线**：世界观 → 力量体系 → 故事大纲 → 主要角色 → 冲突引擎 → 次要角色 → 爽点节奏 → 细纲规划 → 物品道具（SSE 实时流式输出，关键步骤失败终止、可选步骤失败自动跳过）
@@ -23,7 +25,7 @@ INKmaster 是一个基于 AI 的中文网络小说创作工具，采用 FastAPI 
 | 数据库 | SQLite (aiosqlite) |
 | AI | openai（OpenAI/DeepSeek/Ollama）+ anthropic |
 | 桌面 | pywebview (Edge WebView2) |
-| 前端 | React SPA（已编译为静态文件） |
+| 前端 | React SPA（已编译为静态文件，源码不在此仓库） |
 
 ## 快速开始
 
@@ -89,10 +91,13 @@ INKmaster/
 │       ├── prompts/           # 15 种类型模板加载器 + genres/*.md
 │       └── static/            # React SPA 编译产物
 ├── docs/
-│   └── 技术文档.md             # 完整技术文档
-├── HANDOVER.md                # 项目维护与交接说明
+│   ├── 技术文档.md             # 完整技术文档（v2.0）
+│   └── 恢复日志.md             # 反编译恢复过程日志
+├── tools/
+│   ├── extract_pkg.py         # PyInstaller PKG 提取脚本
+│   └── disasm.py              # .pyc 反汇编脚本
 ├── requirements.txt
-└── README.md
+└── HANDOVER.md                # 项目交接文档
 ```
 
 ## API 概览
@@ -115,7 +120,7 @@ INKmaster/
 | GET | `/api/v1/books/{book_id}/token-stats` | Token 用量统计 |
 | GET | `/api/v1/books/{book_id}/export?format=txt\|json` | 导出小说 |
 
-完整接口说明见 [docs/技术文档.md](docs/技术文档.md)。
+完整接口说明见 [docs/技术文档.md](docs/技术文档.md) 第 5 节。
 
 ## 测试
 
@@ -138,10 +143,10 @@ pyinstaller inkmaster.spec     # 注：inkmaster.spec 需按需创建
 
 ## 已知限制
 
-- 前端为编译产物，源码不在此仓库（如需改 UI 需重新构建）
+- 前端为编译产物，源码不在此仓库（如需改 UI 需重建）
 - 无数据库迁移（Alembic），模型变更需手动处理已有数据库
 - 连续性审核、EPUB/PDF 导出未实现
 
 ## 许可证
 
-MIT License
+MIT License · © 2026 [王越豪（湖南科技大学 26 届）](https://github.com/RazorEdge-wyh)
