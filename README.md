@@ -149,4 +149,4 @@ pyinstaller inkmaster.spec     # 注：inkmaster.spec 需按需创建
 
 ## 许可证
 
-MIT License · © 2026 [王越豪（湖南科技大学 26 届）](https://github.com/RazorEdge-wyh)
+MIT License · © 2026 [王越豪 | 湖南科技大学 | 26届](https://github.com/RazorEdge-wyh)
